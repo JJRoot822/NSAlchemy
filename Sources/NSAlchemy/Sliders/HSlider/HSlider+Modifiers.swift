@@ -8,6 +8,13 @@
 import SwiftUI
 
 extension HSlider {
+    
+    /// A modifier that specifies how many tick marks the slider should have
+    /// - Parameters:
+    ///   - number: The number of tick marks
+    ///   - stepByTicks: whether or not the thumb of the slider should only be allowed to move between the tick marks.
+    ///   - position: Where the tick marks should be positioned along the slider
+    /// - Returns: The modified slider
     func tickMarks(number: Int, stepByTicks: Bool, position: NSSlider.TickMarkPosition) -> HSlider {
         var slider = self
         slider.numberOfTickMarks = number
@@ -17,6 +24,9 @@ extension HSlider {
         return slider
     }
     
+    /// A modifier to change the color of the slider's track.
+    /// - Parameter color: The color of the track
+    /// - Returns: The modified slider
     func trackColor(_ color: NSColor) -> HSlider {
         var slider = self
         slider.trackColor = color

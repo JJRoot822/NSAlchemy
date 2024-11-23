@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+/// A horizontal slider
+@available(macOS 10.15, *)
 struct HSlider: NSViewRepresentable {
     @Binding var value: Double
     
@@ -20,14 +22,22 @@ struct HSlider: NSViewRepresentable {
     var allowsTickMarkValuesOnly: Bool = false
     var tickMarkPosition: NSSlider.TickMarkPosition = .leading
     
-    init(value: Binding<Double>, label: String, min: Double = 0, max: Double = 1, altStep: Double? = nil) {
+    /// Creates a new HSlider with a range of values (inclusive) and optional tick marks.
+    /// - Parameters:
+    ///   - value: A binding to the value of the slider
+    ///   - label: The string to be used as the slider's accessibility label
+    ///   - min: The slider's minimum value. The default value is 0.
+    ///   - max: The slider's maximum value. The default value is 1.
+    ///   - altStep: The increment or decrement value when the alt key is held down while adjusting the slider's value. The default value is nil.
+    ///   - allowsTickMarks: Whether or not to show tick marks. The default value = false.
+    init(value: Binding<Double>, label: String, min: Double = 0, max: Double = 1, altStep: Double? = nil, allowsTickMarks: Bool = false) {
         self._value = value
         self.label = label
         self.min = min
         self.max = max
         self.altStep = altStep
+        self.allowsTickMarkValuesOnly = allowsTickMarks
     }
-    
     
     func makeNSView(context: Context) -> NSSlider {
         var slider = NSSlider()

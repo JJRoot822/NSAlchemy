@@ -7,28 +7,8 @@
 
 import SwiftUI
 
-extension PathControl {
-    class Coordinator: NSResponder {
-        private var parent: PathControl
-        
-        init(_ parent: PathControl) {
-            self.parent = parent
-        
-            super.init()
-        }
-        
-        required init?(coder: NSCoder) {
-            fatalError("Not Supported")
-        }
-        
-        @objc func doubleClicked() {
-            guard let doubleClickAction = parent.doubleClickAction else { return }
-            
-            doubleClickAction()
-        }
-    }
-}
-
+/// A view for displaying a visual representation of a file's path on the system.
+@available(macOS 10.15, *)
 struct PathControl: NSViewRepresentable {
     var url: URL
     var doubleClickAction: (() -> Void)?

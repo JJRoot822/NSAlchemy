@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// A view that displays capacity, relevance, and rating levels
-@available(macOS 13.0, *)
+@available(macOS 10.15, *)
 struct LevelIndicator: NSViewRepresentable {
     var label: String
     var value: Double

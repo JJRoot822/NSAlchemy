@@ -40,7 +40,7 @@ struct HSlider: NSViewRepresentable {
     }
     
     func makeNSView(context: Context) -> NSSlider {
-        var slider = NSSlider()
+        let slider = NSSlider()
         slider.target = context.coordinator
         slider.action = #selector(context.coordinator.valueChanged)
         slider.sliderType = .linear

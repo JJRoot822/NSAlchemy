@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(macOS 10.15, *)
 extension ComboBox {
     /// A modifier to define the height of each item in a ComboBox's popup menu.
     /// - Parameter height: The hight of each item in the ComboBox.

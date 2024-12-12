@@ -8,6 +8,7 @@
 import SwiftUI
 
 /// A view that combines a text field and a popup menu.
+@available(macOS 10.15, *)
 struct ComboBox: NSViewRepresentable {
     @Binding var selection: String
     

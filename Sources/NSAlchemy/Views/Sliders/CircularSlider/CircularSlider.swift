@@ -59,7 +59,6 @@ struct CircularSlider: NSViewRepresentable {
     }
     
     func updateNSView(_ nsView: NSSlider, context: Context) {
-        nsView.doubleValue = value
         nsView.allowsTickMarkValuesOnly = allowsTickMarkValuesOnly
     }
 }

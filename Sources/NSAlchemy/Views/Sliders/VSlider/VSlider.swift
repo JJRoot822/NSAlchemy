@@ -64,7 +64,6 @@ struct VSlider: NSViewRepresentable {
     }
     
     func updateNSView(_ nsView: NSSlider, context: Context) {
-        nsView.doubleValue = value
         nsView.trackFillColor = trackColor
         nsView.allowsTickMarkValuesOnly = allowsTickMarkValuesOnly
         nsView.numberOfTickMarks = numberOfTickMarks

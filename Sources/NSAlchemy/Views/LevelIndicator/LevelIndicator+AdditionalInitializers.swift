@@ -18,7 +18,7 @@ extension LevelIndicator {
     ///   - ratingImageName: A custom image from the asset catalog to use for the rating image
     ///   - ratingPlaceholderImageSymbol: A system defined SF Symbol to use as the rating placeholder image.
     ///   - placeholderVisibility: The visibility of the rating placeholder images.
-    init(_ label: String, value: Double, minValue: Double = 0, maxValue: Double = 5, ratingImageName: String, ratingPlaceholderImageSymbol: String, placeholderVisibility: NSLevelIndicator.PlaceholderVisibility) {
+    public init(_ label: String, value: Double, minValue: Double = 0, maxValue: Double = 5, ratingImageName: String, ratingPlaceholderImageSymbol: String, placeholderVisibility: NSLevelIndicator.PlaceholderVisibility) {
         self.label = label
         self.value = value
         self.minValue = minValue
@@ -38,7 +38,7 @@ extension LevelIndicator {
     ///   - ratingImageSymbol: The system  defined SF Symbol for the rating image
     ///   - ratingPlaceholderImageName: The image from the asset catalog to use as the placeholder rating image
     ///   - placeholderVisibility: The visibility of the placeholder rating images.
-    init(_ label: String, value: Double, minValue: Double = 0,maxValue: Double = 5, ratingImageSymbol: String, ratingPlaceholderImageName: String, placeholderVisibility: NSLevelIndicator.PlaceholderVisibility) {
+    public init(_ label: String, value: Double, minValue: Double = 0,maxValue: Double = 5, ratingImageSymbol: String, ratingPlaceholderImageName: String, placeholderVisibility: NSLevelIndicator.PlaceholderVisibility) {
         self.label = label
         self.value = value
         self.minValue = minValue

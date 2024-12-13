@@ -9,7 +9,7 @@ import SwiftUI
 
 /// A view that displays capacity, relevance, and rating levels
 @available(macOS 10.15, *)
-struct LevelIndicator: NSViewRepresentable {
+public struct LevelIndicator: NSViewRepresentable {
     var label: String
     var value: Double
     var minValue: Double
@@ -40,7 +40,7 @@ struct LevelIndicator: NSViewRepresentable {
     ///   - value: The value of the LevelIndicator
     ///   - minValue: The minimum value for the LevelIndicator. Default is 0.
     ///   - maxValue: The maximum value of the LevelIndicator. Default is 1
-    init(_ label: String, value: Double, minValue: Double = 0, maxValue: Double = 1) {
+    public init(_ label: String, value: Double, minValue: Double = 0, maxValue: Double = 1) {
         self.label = label
         self.value = value
         self.minValue = minValue
@@ -57,7 +57,7 @@ struct LevelIndicator: NSViewRepresentable {
     ///   - ratingImageName: The name of the custom image to use to represent the value of the indicator
     ///   - ratingPlaceholderImageName: The name of the custom image to use for the rating placeholder
     ///   - placeholderVisibility: The visibility of the placeholder images
-    init(_ label: String, value: Double, minValue: Double = 0, maxValue: Double = 5, ratingImageName: String, ratingPlaceholderImageName: String, placeholderVisibility: NSLevelIndicator.PlaceholderVisibility) {
+    public init(_ label: String, value: Double, minValue: Double = 0, maxValue: Double = 5, ratingImageName: String, ratingPlaceholderImageName: String, placeholderVisibility: NSLevelIndicator.PlaceholderVisibility) {
         self.label = label
         self.value = value
         self.minValue = minValue
@@ -77,7 +77,7 @@ struct LevelIndicator: NSViewRepresentable {
     ///   - ratingImageSymbol: an SF Symbol to use for the rating image
     ///   - ratingPlaceholderImageSymbol: An SF Symbol to use for the rating image
     ///   - placeholderVisibility: The visibility of the placeholder image
-    init(_ label: String, value: Double, minValue: Double = 0,
+    public init(_ label: String, value: Double, minValue: Double = 0,
          maxValue: Double = 5, ratingImageSymbol: String, ratingPlaceholderImageSymbol: String, placeholderVisibility: NSLevelIndicator.PlaceholderVisibility) {
         self.label = label
         self.value = value

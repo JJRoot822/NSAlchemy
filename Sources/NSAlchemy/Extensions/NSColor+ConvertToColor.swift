@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension NSColor {
-    func toColor() -> Color {
+    public func toColor() -> Color {
         return Color(nsColor: self)
     }
 }

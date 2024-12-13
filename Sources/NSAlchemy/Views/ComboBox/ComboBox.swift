@@ -9,7 +9,7 @@ import SwiftUI
 
 /// A view that combines a text field and a popup menu.
 @available(macOS 10.15, *)
-struct ComboBox: NSViewRepresentable {
+public struct ComboBox: NSViewRepresentable {
     @Binding var selection: String
     
     var label: String
@@ -28,7 +28,7 @@ struct ComboBox: NSViewRepresentable {
     ///   - hasScroller: Whether or not the popup menu of the ComboBox has a vertical scroller.
     ///   - completes: Whether or not the ComboBox attempts to complete the value as the user types with the closest matching item.
     ///   - items: The items, as strings, that the ComboBox should display as options.
-    init(label: String, selection: Binding<String>, hasScroller: Bool, completes: Bool, items: [String]) {
+    public init(label: String, selection: Binding<String>, hasScroller: Bool, completes: Bool, items: [String]) {
         self.label = label
         self.hasVerticalScroller = hasScroller
         self._selection = selection

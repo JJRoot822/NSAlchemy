@@ -9,7 +9,7 @@ import SwiftUI
 
 /// A view for displaying a visual representation of a file's path on the system.
 @available(macOS 10.15, *)
-struct PathControl: NSViewRepresentable {
+public struct PathControl: NSViewRepresentable {
     var url: URL
     var doubleClickAction: (() -> Void)?
     
@@ -17,7 +17,7 @@ struct PathControl: NSViewRepresentable {
     /// - Parameters:
     ///   - url: The URL object that represents the path to a file on the user's system.
     ///   - doubleClickAction: An optional double click handler.
-    init(url: URL, doubleClickAction: (() -> Void)? = nil) {
+    public init(url: URL, doubleClickAction: (() -> Void)? = nil) {
         self.url = url
         self.doubleClickAction = doubleClickAction
     }

@@ -9,7 +9,7 @@ import SwiftUI
 
 /// A horizontal slider
 @available(macOS 10.15, *)
-struct HSlider: NSViewRepresentable {
+public struct HSlider: NSViewRepresentable {
     @Binding var value: Double
     
     var label: String
@@ -30,7 +30,7 @@ struct HSlider: NSViewRepresentable {
     ///   - max: The slider's maximum value. The default value is 1.
     ///   - altStep: The increment or decrement value when the alt key is held down while adjusting the slider's value. The default value is nil.
     ///   - allowsTickMarks: Whether or not to show tick marks. The default value = false.
-    init(value: Binding<Double>, label: String, min: Double = 0, max: Double = 1, altStep: Double? = nil, allowsTickMarks: Bool = false) {
+    public init(value: Binding<Double>, label: String, min: Double = 0, max: Double = 1, altStep: Double? = nil, allowsTickMarks: Bool = false) {
         self._value = value
         self.label = label
         self.min = min

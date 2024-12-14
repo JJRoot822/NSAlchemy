@@ -5,7 +5,7 @@
 //  Created by Joshua Root on 12/12/24.
 //
 
-import Cocoa
+import AppKit
 
 @available(macOS 10.15, *)
 extension ComboBox {

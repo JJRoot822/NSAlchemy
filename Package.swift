@@ -5,21 +5,21 @@ import PackageDescription
 
 let package = Package(
     name: "Alchemy",
-    platforms: [ .macOS(.v10_15), .iOS(.v13), .macCatalyst(.v13) ],
+    platforms: [ .macOS(.v10_15) ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "Alchemy",
-            targets: ["Alchemy"]),
+            name: "NSAlchemy",
+            targets: ["NSAlchemy"]),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "Alchemy"),
+            name: "NSAlchemy"),
         .testTarget(
-            name: "AlchemyTests",
-            dependencies: ["Alchemy"]
+            name: "NSAlchemyTests",
+            dependencies: ["NSAlchemy"]
         ),
     ]
 )

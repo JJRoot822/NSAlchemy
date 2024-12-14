@@ -1,4 +1,0 @@
-[0/1] Planning build
-Building for debugging...
-[0/2] Write sources
-[1/2] Write swift-version--1AB21518FC5DEDBE.txt

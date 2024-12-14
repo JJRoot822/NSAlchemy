@@ -1,17 +1,17 @@
 //
-//  VSlider+Coordinator.swift
+//  CircularSlider+Coordinator.swift
 //  NSAlchemy
 //
-//  Created by Joshua Root on 9/21/24.
+//  Created by Joshua Root on 11/7/24.
 //
 
-import SwiftUI
+import AppKit
 
-extension VSlider {
-    class Coordinator: NSResponder {
-        var parent: VSlider
+extension CircularSlider {
+    public class Coordinator: NSResponder {
+        var parent: CircularSlider
         
-        init(_ parent: VSlider) {
+        init(_ parent: CircularSlider) {
             self.parent = parent
             
             super.init()
@@ -26,4 +26,3 @@ extension VSlider {
         }
     }
 }
-

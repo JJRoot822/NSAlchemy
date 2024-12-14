@@ -38,7 +38,7 @@ public struct VSlider: NSViewRepresentable {
     }
     
     
-    func makeNSView(context: Context) -> NSSlider {
+    public func makeNSView(context: Context) -> NSSlider {
         let slider = NSSlider()
         slider.target = context.coordinator
         slider.action = #selector(context.coordinator.valueChanged)
@@ -59,11 +59,11 @@ public struct VSlider: NSViewRepresentable {
         return slider
     }
     
-    func makeCoordinator() -> Coordinator {
+    public func makeCoordinator() -> Coordinator {
         return Coordinator(self)
     }
     
-    func updateNSView(_ nsView: NSSlider, context: Context) {
+    public func updateNSView(_ nsView: NSSlider, context: Context) {
         nsView.trackFillColor = trackColor
         nsView.allowsTickMarkValuesOnly = allowsTickMarkValuesOnly
         nsView.numberOfTickMarks = numberOfTickMarks

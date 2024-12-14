@@ -1,0 +1,3 @@
+Building for debugging...
+[0/1] Write swift-version--1AB21518FC5DEDBE.txt
+Build complete! (0.12s)

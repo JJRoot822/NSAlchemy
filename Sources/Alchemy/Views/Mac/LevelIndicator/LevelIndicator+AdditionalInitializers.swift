@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@available(macOS 10.15, *)
+@available(macOS 11.0, *)
 extension LevelIndicator {
     /// Creates a new LevelIndicator with the rating style, a system defined SF Symbol for the rating placeholder and a custom image for the rating image.
     /// - Parameters:

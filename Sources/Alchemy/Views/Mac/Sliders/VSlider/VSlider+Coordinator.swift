@@ -1,5 +1,5 @@
 //
-//  HSlider+Coordinator.swift
+//  VSlider+Coordinator.swift
 //  NSAlchemy
 //
 //  Created by Joshua Root on 9/21/24.
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-extension HSlider {
-    class Coordinator: NSResponder {
-        var parent: HSlider
+extension VSlider {
+    public class Coordinator: NSResponder {
+        var parent: VSlider
         
-        init(_ parent: HSlider) {
+        public init(_ parent: VSlider) {
             self.parent = parent
             
             super.init()
@@ -26,3 +26,4 @@ extension HSlider {
         }
     }
 }
+

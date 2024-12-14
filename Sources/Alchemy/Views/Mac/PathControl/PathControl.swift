@@ -22,7 +22,7 @@ public struct PathControl: NSViewRepresentable {
         self.doubleClickAction = doubleClickAction
     }
     
-    func makeNSView(context: Context) -> NSPathControl {
+    public func makeNSView(context: Context) -> NSPathControl {
         let pathControl = NSPathControl()
         pathControl.url = url
         pathControl.doubleAction = #selector(context.coordinator.doubleClicked)
@@ -30,9 +30,9 @@ public struct PathControl: NSViewRepresentable {
         return pathControl
     }
     
-    func updateNSView(_ nsView: NSPathControl, context: Context) {}
+    public func updateNSView(_ nsView: NSPathControl, context: Context) {}
     
-    func makeCoordinator() -> Coordinator {
+    public func makeCoordinator() -> Coordinator {
         return Coordinator(self)
     }
 }

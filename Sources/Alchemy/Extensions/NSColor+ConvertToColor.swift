@@ -8,6 +8,7 @@
 import SwiftUI
 
 extension NSColor {
+    @available(macOS 12.0, *)
     public func toColor() -> Color {
         return Color(nsColor: self)
     }

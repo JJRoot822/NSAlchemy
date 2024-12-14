@@ -1,17 +1,17 @@
 //
-//  CircularSlider+Coordinator.swift
+//  HSlider+Coordinator.swift
 //  NSAlchemy
 //
-//  Created by Joshua Root on 11/7/24.
+//  Created by Joshua Root on 9/21/24.
 //
 
-import AppKit
+import SwiftUI
 
-extension CircularSlider {
-    class Coordinator: NSResponder {
-        var parent: CircularSlider
+extension HSlider {
+    public class Coordinator: NSResponder {
+        var parent: HSlider
         
-        init(_ parent: CircularSlider) {
+        public init(_ parent: HSlider) {
             self.parent = parent
             
             super.init()

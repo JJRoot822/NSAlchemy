@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// A view that displays capacity, relevance, and rating levels
-@available(macOS 10.15, *)
+@available(macOS 11.0, *)
 public struct LevelIndicator: NSViewRepresentable {
     var label: String
     var value: Double
@@ -40,6 +40,7 @@ public struct LevelIndicator: NSViewRepresentable {
     ///   - value: The value of the LevelIndicator
     ///   - minValue: The minimum value for the LevelIndicator. Default is 0.
     ///   - maxValue: The maximum value of the LevelIndicator. Default is 1
+    @available(macOS 11.0, *)
     public init(_ label: String, value: Double, minValue: Double = 0, maxValue: Double = 1) {
         self.label = label
         self.value = value
@@ -57,6 +58,7 @@ public struct LevelIndicator: NSViewRepresentable {
     ///   - ratingImageName: The name of the custom image to use to represent the value of the indicator
     ///   - ratingPlaceholderImageName: The name of the custom image to use for the rating placeholder
     ///   - placeholderVisibility: The visibility of the placeholder images
+    @available(macOS 11.0, *)
     public init(_ label: String, value: Double, minValue: Double = 0, maxValue: Double = 5, ratingImageName: String, ratingPlaceholderImageName: String, placeholderVisibility: NSLevelIndicator.PlaceholderVisibility) {
         self.label = label
         self.value = value
@@ -77,6 +79,7 @@ public struct LevelIndicator: NSViewRepresentable {
     ///   - ratingImageSymbol: an SF Symbol to use for the rating image
     ///   - ratingPlaceholderImageSymbol: An SF Symbol to use for the rating image
     ///   - placeholderVisibility: The visibility of the placeholder image
+    @available(macOS 11.0, *)
     public init(_ label: String, value: Double, minValue: Double = 0,
          maxValue: Double = 5, ratingImageSymbol: String, ratingPlaceholderImageSymbol: String, placeholderVisibility: NSLevelIndicator.PlaceholderVisibility) {
         self.label = label
@@ -89,7 +92,8 @@ public struct LevelIndicator: NSViewRepresentable {
         self.ratingPlaceholderImage = NSImage(systemSymbolName: ratingPlaceholderImageSymbol, accessibilityDescription: nil)
     }
     
-    func makeNSView(context: Context) -> NSLevelIndicator {
+    @available(macOS 11.0, *)
+    public func makeNSView(context: Context) -> NSLevelIndicator {
         let indicator = NSLevelIndicator()
         indicator.doubleValue = value
         indicator.maxValue = maxValue
@@ -108,7 +112,8 @@ public struct LevelIndicator: NSViewRepresentable {
         return indicator
     }
 
-    func updateNSView(_ nsView: NSLevelIndicator, context: Context) {
+    @available(macOS 11.0, *)
+    public func updateNSView(_ nsView: NSLevelIndicator, context: Context) {
         nsView.doubleValue = self.value
         nsView.maxValue = self.maxValue
         nsView.minValue = self.minValue

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@available(macOS 10.15,*)
+@available(macOS 11.0,*)
 extension LevelIndicator {
     /// A modifier used to define the fill color of the indicator when it's value is below the warning and critical levels.
     /// - Parameter color: The color to use as the fill color

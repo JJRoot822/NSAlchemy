@@ -35,7 +35,7 @@ public struct CircularSlider: NSViewRepresentable {
         self.altStep = altStep
     }
     
-    func makeNSView(context: Context) -> NSSlider {
+    public func makeNSView(context: Context) -> NSSlider {
         let slider = NSSlider()
         slider.target = context.coordinator
         slider.action = #selector(context.coordinator.valueChanged)
@@ -53,11 +53,11 @@ public struct CircularSlider: NSViewRepresentable {
         return slider
     }
     
-    func makeCoordinator() -> Coordinator {
+    public func makeCoordinator() -> Coordinator {
         return Coordinator(self)
     }
     
-    func updateNSView(_ nsView: NSSlider, context: Context) {
+    public func updateNSView(_ nsView: NSSlider, context: Context) {
         nsView.allowsTickMarkValuesOnly = allowsTickMarkValuesOnly
     }
 }

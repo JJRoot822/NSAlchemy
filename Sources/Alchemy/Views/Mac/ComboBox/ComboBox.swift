@@ -36,7 +36,7 @@ public struct ComboBox: NSViewRepresentable {
         self.items = items
     }
     
-    func makeNSView(context: Context) -> NSComboBox {
+    public func makeNSView(context: Context) -> NSComboBox {
         let comboBox = NSComboBox()
         comboBox.setAccessibilityLabel(label)
         comboBox.completes = completes
@@ -51,11 +51,11 @@ public struct ComboBox: NSViewRepresentable {
         return comboBox
     }
     
-    func makeCoordinator() -> Coordinator {
+    public func makeCoordinator() -> Coordinator {
         return Coordinator(self)
     }
     
-    func updateNSView(_ nsView: NSComboBox, context: Context) {
+    public func updateNSView(_ nsView: NSComboBox, context: Context) {
         if let intercellSpacing = itemSpacing {
             nsView.intercellSpacing = intercellSpacing
         }

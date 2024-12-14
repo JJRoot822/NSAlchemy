@@ -9,7 +9,7 @@ import Cocoa
 
 @available(macOS 10.15, *)
 extension ComboBox {
-    class Coordinator: NSResponder {
+    public class Coordinator: NSResponder {
         private var parent: ComboBox
         
         init(_ parent: ComboBox) {

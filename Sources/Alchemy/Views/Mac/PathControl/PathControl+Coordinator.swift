@@ -5,14 +5,14 @@
 //  Created by Joshua Root on 12/11/24.
 //
 
-import Cocoa
+import AppKit
 
 @available(macOS 10.15, *)
 extension PathControl {
-    class Coordinator: NSResponder {
+    public class Coordinator: NSResponder {
         private var parent: PathControl
         
-        init(_ parent: PathControl) {
+        public init(_ parent: PathControl) {
             self.parent = parent
         
             super.init()

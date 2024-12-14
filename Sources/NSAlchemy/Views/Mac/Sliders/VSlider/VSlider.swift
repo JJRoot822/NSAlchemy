@@ -28,7 +28,7 @@ public struct VSlider: NSViewRepresentable {
     ///   - max: The slider's maximum value. The default value is 1.
     ///   - altStep: The increment or decrement value when the alt key is held down while adjusting the slider's value. The default value is nil.
     ///   - allowsTickMarks: Whether or not to show tick marks. The default value is false.
-    public init(value: Binding<Double>, label: String, min: Double = 0, max: Double = 1, altStep: Double? = nil, allowsTickMarks: Bool = false) {
+    public init(_ label: String, value: Binding<Double>, min: Double = 0, max: Double = 1, altStep: Double? = nil, allowsTickMarks: Bool = false) {
         self._value = value
         self.label = label
         self.min = min
@@ -64,6 +64,7 @@ public struct VSlider: NSViewRepresentable {
     }
     
     public func updateNSView(_ nsView: NSSlider, context: Context) {
+        nsView.doubleValue = value
         nsView.trackFillColor = trackColor
         nsView.allowsTickMarkValuesOnly = allowsTickMarkValuesOnly
         nsView.numberOfTickMarks = numberOfTickMarks

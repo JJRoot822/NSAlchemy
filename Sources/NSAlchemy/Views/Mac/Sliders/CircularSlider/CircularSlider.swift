@@ -27,7 +27,7 @@ public struct CircularSlider: NSViewRepresentable {
     ///   - max: The slider's maximum value. The default value is 1.
     ///   - altStep: The increment or decrement value when the alt key is held down when adjusting the value of the slider. The default value is nil.
     ///   - allowTickMarks: Whether or not to allow tick marks around the circumference of the slider. The default value is false.
-    public init(value: Binding<Double>, label: String, min: Double = 0, max: Double = 1, altStep: Double? = nil, allowTickMarks: Bool = false) {
+    public init(_ label: String, value: Binding<Double>, min: Double = 0, max: Double = 1, altStep: Double? = nil, allowTickMarks: Bool = false) {
         self._value = value
         self.label = label
         self.min = min
@@ -58,6 +58,7 @@ public struct CircularSlider: NSViewRepresentable {
     }
     
     public func updateNSView(_ nsView: NSSlider, context: Context) {
+        nsView.doubleValue = value
         nsView.allowsTickMarkValuesOnly = allowsTickMarkValuesOnly
     }
 }

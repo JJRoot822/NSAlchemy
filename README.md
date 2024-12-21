@@ -23,8 +23,7 @@ To install this package, you must use Swift Package Manager (SPM).
 
 ### Slider Examples
 
-swift
-```
+```swift
 
 import SwiftUI
 import NSAlchemy
@@ -34,23 +33,23 @@ struct ContentView: View {
     
     var body: some View {
         HStack {
-            HSlider(value: $volume, label: "Volume Level", min: 0, max: 100, altStep: 5, allowsTickMarks: true)
+            HSlider("Volume Level", value: $volume, min: 0, max: 100, altStep: 5, allowsTickMarks: true)
                 .tickMarks(number: 200, stepByTicks: true, position: .above)
         
-            VSlider(value: $volume, label: "Volume Level", min: 0, max: 100, altStep: 5, allowsTickMarks: true)
+            VSlider("Volume Level", value: $volume, min: 0, max: 100, altStep: 5, allowsTickMarks: true)
                 .tickMarks(number: 200, stepByTicks: true, position: .leading)
         
-            CircularSlider(value: $volume, label: "Volume Level", min: 0, max: 100, altStep: 5, allowTickMarks: false)
+            CircularSlider("Volume Level", value: $volume, min: 0, max: 100, altStep: 5, allowTickMarks: false)
         }
     }
 }
 ```
 
+![A macOS app displaying a sidebar and a detail view displaying the results of the above code snippet](Screenshots/Sliders.png)
+
 ### Level Indicator Examples
 
-swift
-```
-
+```swift
 import SwiftUI
 import NSAlchemy
 
@@ -76,11 +75,11 @@ struct ContentView: View {
 }
 ```
 
+![A macOS app displaying a sidebar and a detail view showing the results of the above code snippet](Screenshots/LevelIndicators.png)
+
 ### PathControl Example
 
-swift
-```
-
+```swift
 import SwiftUI
 import NSAlchemy
 
@@ -97,11 +96,11 @@ struct ContentView: View {
 }
 ```
 
+![A macOS app displaying a sidebar and detail view showing the results of the above code snippet](Screenshots/PathControl.png)
+
 ### ComboBox Example
 
-swift
-```
-
+```swift
 import SwiftUI
 import NSAlchemy
 
@@ -115,3 +114,6 @@ struct ContentView: View {
     }
 }
 ```
+
+![A macOS app displaying a sidebar and a detail view showing the results of the above code snippet](Screenshots/ComboBox.png)
+

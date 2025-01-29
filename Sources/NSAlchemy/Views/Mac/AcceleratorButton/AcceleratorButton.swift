@@ -80,13 +80,22 @@ public struct AcceleratorButton: NSViewRepresentable {
         switch contentStyle {
         case .labelAndIcon:
             nsView.title = title
-            nsView.image = image
-        case .iconOnly:
-            nsView.title = ""
             nsView.setAccessibilityLabel(title)
             nsView.image = image
+        case .iconOnly:
+            if let image = image {
+                nsView.title = ""
+                nsView.setAccessibilityLabel(title)
+                nsView.image = image
+            } else {
+                nsView.title = title
+                nsView.setAccessibilityLabel(title)
+                nsView.image = nil
+            }
+            
         case .labelOnly:
             nsView.title = title
+            nsView.setAccessibilityLabel(title)
             nsView.image = nil
         }
     }

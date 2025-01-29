@@ -69,8 +69,6 @@ public struct ContinuousButton: NSViewRepresentable {
         let button: NSButton = NSButton()
         button.setPeriodicDelay(delay, interval: interval)
         button.isContinuous = true
-        button.contentTintColor = textColor
-        button.bezelColor = tintColor
         button.target = context.coordinator
         button.action = #selector(context.coordinator.buttonClicked)
         
@@ -92,13 +90,22 @@ public struct ContinuousButton: NSViewRepresentable {
         switch contentStyle {
         case .labelAndIcon:
             nsView.title = title
-            nsView.image = image
-        case .iconOnly:
-            nsView.title = ""
             nsView.setAccessibilityLabel(title)
             nsView.image = image
+        case .iconOnly:
+            if let image = image {
+                nsView.title = ""
+                nsView.setAccessibilityLabel(title)
+                nsView.image = image
+            } else {
+                nsView.title = title
+                nsView.setAccessibilityLabel(title)
+                nsView.image = nil
+            }
+            
         case .labelOnly:
             nsView.title = title
+            nsView.setAccessibilityLabel(title)
             nsView.image = nil
         }
     }

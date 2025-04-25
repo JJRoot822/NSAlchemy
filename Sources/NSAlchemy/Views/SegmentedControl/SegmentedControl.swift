@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// A segmented control that supports one or more segment selections.
 @available(macOS 11.0, *)
 public struct SegmentedControl: NSViewRepresentable {
     @Binding var selection: Set<SegmentedControlItem>
@@ -18,7 +19,17 @@ public struct SegmentedControl: NSViewRepresentable {
     var selectedSegmentTintColor: Color
     var distributionStyle: SegmentedControlDistributionStyle
     var selectionMode: SegmentedControlSelectionMode
-    
+	
+	/// Creates a SegmentedControl.
+	///
+	/// Your app will crash when the image of any segment is nil or doesn't contain a valid SF Symbol depending on the segment style you choose that support images.
+	///
+	/// - Parameters:
+	///   - title: The title that will be used for the segmented control's accessibility label
+	///   - selection: The binding for the selected segments
+	///   - items: The SegmentedControl's items
+	///   - selectionMode: Whether the Segmented Control should support one or many selected segments
+	///   - segmentContentStyle: Whether or not the segments should display an image or text.
     public init(_ title: String, selection: Binding<Set<SegmentedControlItem>>, items: [SegmentedControlItem], selectionMode: SegmentedControlSelectionMode, segmentContentStyle: SegmentType) {
         self._selection = selection
         self.title = title

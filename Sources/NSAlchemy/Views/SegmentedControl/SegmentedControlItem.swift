@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// An object representing a segment of a SegmentedControl
 @available(macOS 10.15, *)
 public struct SegmentedControlItem: Hashable {
     var title: String

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// A view representing a search field
 @available(macOS 10.15, *)
 public struct SearchField: NSViewRepresentable {
     @Binding var text: String
@@ -15,7 +16,12 @@ public struct SearchField: NSViewRepresentable {
     var maxRecents: Int
     var recentsAutosaveName: String?
     var placeholder: String
-    
+	
+	/// Creates a SearchField
+	/// - Parameters:
+	///   - text: The binding to the text for the SearchField
+	///   - prompt: the placeholder text for the SearchField
+	///   - maxRecents: The maximum number of search queries this SearchField remembers.
     public init(text: Binding<String>, prompt: String, maxRecents: Int) {
         self._text = text
         self.placeholder = prompt
@@ -24,7 +30,7 @@ public struct SearchField: NSViewRepresentable {
     }
     
     public func makeNSView(context: Context) -> NSSearchField {
-        var searchField = NSSearchField()
+        let searchField = NSSearchField()
         searchField.maximumRecents = maxRecents
         searchField.sendsWholeSearchString = sendEntireSearchString
         searchField.stringValue = text

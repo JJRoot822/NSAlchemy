@@ -63,9 +63,6 @@ struct SlidersView: View {
 ### Level Indicator Examples
 
 ```swift
-import SwiftUI
-import NSAlchemy
-
 struct LevelIndicatorsView: View {
 	let maxStorageInPB: Double = 1.0
 	let percentageUsed: Double = 0.25
@@ -131,9 +128,6 @@ struct LevelIndicatorsView: View {
 ### PathControl Example
 
 ```swift
-import SwiftUI
-import NSAlchemy
-
 struct PathControlView: View {
 	private let url = URL(string: "/Users/ExampleUser/Documents/Work/QuarterlyReports")!
 	
@@ -152,9 +146,6 @@ struct PathControlView: View {
 ### ComboBox Example
 
 ```swift
-import SwiftUI
-import NSAlchemy
-
 struct ComboBoxView: View {
 	@State private var selection: String = "Apple"
 	

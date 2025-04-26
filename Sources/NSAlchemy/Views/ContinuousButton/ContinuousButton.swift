@@ -41,8 +41,14 @@ public struct ContinuousButton: NSViewRepresentable {
     ///   - action: The code to be executed after a delay and at every interval while the button is pressed
     public init(_ title: String, image: String, delay: Float, interval: Float, action: @escaping () -> Void) {
         self.title = title
-        self.image = NSImage(named: image)
-        self.delay =  delay
+        
+		if let image = NSImage(named: image) {
+			self.image = image
+		} else {
+			fatalError("When using this initializer, a valid image with the given name must be present in the asset catalog.")
+		}
+        
+		self.delay =  delay
         self.interval = interval
         self.action = action
         self.contentStyle = .labelAndIcon
@@ -58,8 +64,14 @@ public struct ContinuousButton: NSViewRepresentable {
     @available(macOS 11.0, *)
     public init(_ title: String, systemImage: String, delay: Float, interval: Float, action: @escaping () -> Void) {
         self.title = title
-        self.image = NSImage(systemSymbolName: systemImage, accessibilityDescription: nil)
-        self.delay =  delay
+        
+		if let image = NSImage(systemSymbolName: systemImage, accessibilityDescription: nil) {
+			self.image = image
+		} else {
+			fatalError("When using this initializer, a valid SF Symbol must be present.")
+		}
+        
+		self.delay =  delay
         self.interval = interval
         self.action = action
         self.contentStyle = .labelAndIcon
@@ -89,20 +101,22 @@ public struct ContinuousButton: NSViewRepresentable {
     public func updateNSView(_ nsView: NSButton, context: Context) {
         switch contentStyle {
         case .labelAndIcon:
-            nsView.title = title
-            nsView.setAccessibilityLabel(title)
-            nsView.image = image
+            if let image = image {
+				nsView.title = title
+				nsView.image = image
+				nsView.setAccessibilityLabel(title)
+			} else {
+				fatalError("In order to use the labelAndIcon continuous button style, there must be an image or symbol specified in the initializer.")
+			}
         case .iconOnly:
             if let image = image {
                 nsView.title = ""
                 nsView.setAccessibilityLabel(title)
                 nsView.image = image
-            } else {
-                nsView.title = title
-                nsView.setAccessibilityLabel(title)
-                nsView.image = nil
-            }
-            
+			} else {
+				fatalError("In order to use the iconOnly continuous button type, there must be an image or symbol specified in the initializer.")
+			}
+
         case .labelOnly:
             nsView.title = title
             nsView.setAccessibilityLabel(title)

@@ -28,7 +28,7 @@ public struct ComboBox: NSViewRepresentable {
     ///   - hasScroller: Whether or not the popup menu of the ComboBox has a vertical scroller.
     ///   - completes: Whether or not the ComboBox attempts to complete the value as the user types with the closest matching item.
     ///   - items: The items, as strings, that the ComboBox should display as options.
-    public init(label: String, selection: Binding<String>, hasScroller: Bool, completes: Bool, items: [String]) {
+    public init(_ label: String, selection: Binding<String>, hasScroller: Bool, completes: Bool, items: [String]) {
         self.label = label
         self.hasVerticalScroller = hasScroller
         self._selection = selection

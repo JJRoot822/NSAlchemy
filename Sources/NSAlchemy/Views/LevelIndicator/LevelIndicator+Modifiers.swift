@@ -91,7 +91,7 @@ extension LevelIndicator {
     ///   - ticks: The number of tick marks
     ///   - position: The position of the tick marks
     /// - Returns: The modified LevelIndicator
-    public func tickMarks(_ ticks: Int, position: NSSlider.TickMarkPosition) -> LevelIndicator {
+    public func tickMarks(_ ticks: Int, position: LevelIndicatorTickPosition) -> LevelIndicator {
         var indicator = self
         indicator.numberOfTickMarks = ticks
         indicator.tickMarkPosition = position
@@ -102,7 +102,7 @@ extension LevelIndicator {
     /// A modifier for specifying the style of the level indicator
     /// - Parameter style: The style of the indicator
     /// - Returns: The modified LevelIndicator
-    public func indicatorStyle(_ style: NSLevelIndicator.Style) -> LevelIndicator {
+    public func indicatorStyle(_ style: LevelIndicatorStyle) -> LevelIndicator {
         var indicator = self
         indicator.style = style
         

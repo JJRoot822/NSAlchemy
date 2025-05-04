@@ -77,7 +77,7 @@ extension LevelIndicator {
     ///   - majorTicks: The number of major tick marks
     ///   - position: The position of the tick marks
     /// - Returns: The modified LevelIndicator
-    public func tickMarks(_ ticks: Int, majorTicks: Int, position: NSSlider.TickMarkPosition) -> LevelIndicator {
+    public func tickMarks(_ ticks: Int, majorTicks: Int, position: LevelIndicatorTickPosition) -> LevelIndicator {
         var indicator = self
         indicator.numberOfTickMarks = ticks
         indicator.numberOfMajorTickMarks = majorTicks

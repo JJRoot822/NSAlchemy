@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension SearchField {
-    public class Coordinator: NSResponder {
+    public class Coordinator: NSResponder, NSSearchFieldDelegate {
         var parent: SearchField
         
         init(_ parent: SearchField) {
@@ -21,6 +21,13 @@ extension SearchField {
             fatalError("Not supported")
         }
         
+		public func control(_ control: NSControl, textView: NSTextView, completions words: [String], forPartialWordRange charRange: NSRange, indexOfSelectedItem index: UnsafeMutablePointer<Int>) -> [String] {
+			let partial = (textView.string as NSString).substring(with: charRange).lowercased()
+			let matches = parent.completions!.filter { $0.lowercased().hasPrefix(partial) }
+			
+			return matches
+		}
+		
         @objc func search(_ sender: NSSearchField) {
             parent.text = sender.stringValue
         }

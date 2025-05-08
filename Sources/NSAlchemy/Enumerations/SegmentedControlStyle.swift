@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Constants for specifying the style to use for a SegmentedControl
 @available(macOS 10.15, *)
 public enum SegmentedControlStyle {
     case automatic, rounded, roundedRect, texturedSquare, smallSquare, separated

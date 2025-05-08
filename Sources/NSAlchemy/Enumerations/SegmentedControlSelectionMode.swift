@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Constants for specifying how many segments the user can select in a SegmentedControl
 @available(macOS 10.15, *)
 public enum SegmentedControlSelectionMode {
     case one, multiple

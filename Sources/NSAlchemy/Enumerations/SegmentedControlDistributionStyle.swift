@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+/// Constants to specify how segments in a SegmentedControl are distributed along the width of the SegmentedControl
 @available(macOS 10.15, *)
 public enum SegmentedControlDistributionStyle {
     case fit, fill, fillEqually, fillProportionally

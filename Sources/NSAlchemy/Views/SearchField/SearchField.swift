@@ -16,7 +16,7 @@ public struct SearchField: NSViewRepresentable {
     var maxRecents: Int
     var recentsAutosaveName: String?
     var placeholder: String
-//	var completions: [String]?
+	var completions: [String]?
 	
 	/// Creates a SearchField
 	/// - Parameters:
@@ -28,7 +28,7 @@ public struct SearchField: NSViewRepresentable {
 		self.placeholder = prompt
 		self.maxRecents = maxRecents
 		self.sendEntireSearchString = false
-//		self.completions = nil
+		self.completions = nil
 	}
 	
 	/// Creates a SearchField
@@ -37,13 +37,13 @@ public struct SearchField: NSViewRepresentable {
 	///   - prompt: the placeholder text for the SearchField
 	///   - maxRecents: The maximum number of search queries this SearchField remembers.
 	///   - completions: The potential completions for the search field
-//	public init(text: Binding<String>, prompt: String, maxRecents: Int, completions: [String]) {
-//		self._text = text
-//		self.placeholder = prompt
-//		self.maxRecents = maxRecents
-//		self.sendEntireSearchString = false
-//		self.completions = completions
-//	}
+	public init(text: Binding<String>, prompt: String, maxRecents: Int, completions: [String]) {
+		self._text = text
+		self.placeholder = prompt
+		self.maxRecents = maxRecents
+		self.sendEntireSearchString = false
+		self.completions = completions
+	}
     
     public func makeNSView(context: Context) -> NSSearchField {
         let searchField = NSSearchField()
@@ -54,10 +54,10 @@ public struct SearchField: NSViewRepresentable {
         searchField.target = context.coordinator
         searchField.action = #selector(context.coordinator.search)
 		
-//		if let completions = completions {
-//			searchField.delegate = context.coordinator
-//			searchField.isAutomaticTextCompletionEnabled = true
-//		}
+		if let _ = completions {
+			searchField.delegate = context.coordinator
+			searchField.isAutomaticTextCompletionEnabled = true
+		}
 		
         return searchField
     }

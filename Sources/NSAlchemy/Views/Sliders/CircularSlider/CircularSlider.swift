@@ -18,7 +18,9 @@ public struct CircularSlider: NSViewRepresentable {
     var altStep: Double?
 
     var allowsTickMarkValuesOnly: Bool = false
-    
+
+	var valueChangeBehavior: SliderValueBehavior
+	
     /// Creates a CircularSlider with a range of values (inclusive), and optional tick marks
     /// - Parameters:
     ///   - value: A binding to the slider's value.
@@ -27,13 +29,14 @@ public struct CircularSlider: NSViewRepresentable {
     ///   - max: The slider's maximum value. The default value is 1.
     ///   - altStep: The increment or decrement value when the alt key is held down when adjusting the value of the slider. The default value is nil.
     ///   - allowTickMarks: Whether or not to allow tick marks around the circumference of the slider. The default value is false.
-    public init(_ label: String, value: Binding<Double>, min: Double = 0, max: Double = 1, altStep: Double? = nil, allowTickMarks: Bool = false) {
-        self._value = value
-        self.label = label
-        self.min = min
-        self.max = max
-        self.altStep = altStep
-    }
+	public init(_ label: String, value: Binding<Double>, min: Double = 0, max: Double = 1, altStep: Double? = nil, allowTickMarks: Bool = false) {
+		self._value = value
+		self.label = label
+		self.min = min
+		self.max = max
+		self.altStep = altStep
+		self.valueChangeBehavior = .continuous
+	}
     
     public func makeNSView(context: Context) -> NSSlider {
         let slider = NSSlider()
@@ -45,7 +48,8 @@ public struct CircularSlider: NSViewRepresentable {
         slider.minValue = min
         slider.maxValue = max
         slider.allowsTickMarkValuesOnly = allowsTickMarkValuesOnly
-        
+		slider.isContinuous = true
+		
         if let altStep = altStep {
             slider.altIncrementValue = altStep
         }
@@ -57,9 +61,16 @@ public struct CircularSlider: NSViewRepresentable {
         return Coordinator(self)
     }
     
-    public func updateNSView(_ nsView: NSSlider, context: Context) {
-        nsView.doubleValue = value
-        nsView.allowsTickMarkValuesOnly = allowsTickMarkValuesOnly
-    }
+	public func updateNSView(_ nsView: NSSlider, context: Context) {
+		nsView.doubleValue = value
+		nsView.allowsTickMarkValuesOnly = allowsTickMarkValuesOnly
+		
+		switch valueChangeBehavior {
+		case .continuous:
+			nsView.isContinuous = true
+		case .doneAdjusting:
+			nsView.isContinuous = false
+		}
+	}
 }
 

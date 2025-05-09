@@ -32,4 +32,11 @@ extension HSlider {
     
         return slider
     }
+	
+	public func valueChangeBehavior(_ behavior: SliderValueBehavior) -> HSlider {
+		var slider = self
+		slider.valueChangeBehavior = behavior
+		
+		return slider
+	}
 }

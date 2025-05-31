@@ -1,0 +1,8 @@
+1. A descriptive title for the bug or feature request. If a bug, there should be a detailed account of what the bug is, what the developer expected to happen, and steps to reproduce the bug. If a feature request, a detailed description of what the feature being requested should do and why it should be included in the package
+2. Bugs or feature requests
+3. If there is already a similar bug or feature request, you should leave an additional comment in that already existing issue
+4. Use markdown formatted code snippets if required, as opposed to attaching screenshots. Error logs should be attached as files, but Please don't include personally identifying information.
+5. Please include Xcode and Swift versions being used
+6. A descriptive title for the bug or feature request
+7. Include "[BUG]" or "[FEATURE]" in the title
+8. Just to be patient because of research time and assessment of viability

@@ -1,0 +1,6 @@
+Added a FileDialog structure for Easy Access to open and save panels for files and directories
+Fixed an error in the LevelIndicator documentation.
+Removed lingering Cocoa Types from LevelIndicator initializers and modifiers and abstracted them away behind custom types
+LevelIndicator no longer supports the rating style
+Created Custom RatingControl and RatingIndicator views
+Created Custom RelevancyIndicator view

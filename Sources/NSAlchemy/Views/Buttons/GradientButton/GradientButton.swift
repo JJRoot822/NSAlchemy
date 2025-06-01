@@ -13,7 +13,7 @@ public struct GradientButton: NSViewRepresentable {
 	var imageType: GradientButtonImageType
 	var action: () -> Void
 	
-	init(title: String, image: GradientButtonImageType, action: @escaping (() -> Void)) {
+	public init(title: String, image: GradientButtonImageType, action: @escaping (() -> Void)) {
 		self.title = title
 		self.imageType = image
 		self.action = action

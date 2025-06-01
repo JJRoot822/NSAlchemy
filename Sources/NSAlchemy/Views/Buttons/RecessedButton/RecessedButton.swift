@@ -13,7 +13,7 @@ public struct RecessedButton: NSViewRepresentable {
 	
 	@Binding var isOn: Bool
 	
-	init(title: String, isOn: Binding<Bool>) {
+	public init(title: String, isOn: Binding<Bool>) {
 		self.title = title
 		self._isOn = isOn
 	}

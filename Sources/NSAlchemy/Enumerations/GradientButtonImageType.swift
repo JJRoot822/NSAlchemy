@@ -8,6 +8,6 @@
 import Foundation
 
 @available(macOS 11.0, *)
-enum GradientButtonImageType {
+public enum GradientButtonImageType {
 	case asset(String), symbol(String)
 }

@@ -1,18 +1,17 @@
 //
-//  FlexibleButton+Coordinator.swift
+//  BadgeButton+Coordinator.swift
 //  NSAlchemy
 //
-//  Created by Joshua Root on 5/31/25.
+//  Created by Joshua Root on 6/1/25.
 //
 
 import Cocoa
 
-@available(macOS 11.0, *)
-public extension FlexibleButton {
+public extension BadgeButton {
 	class Coordinator: NSResponder {
-		var parent: FlexibleButton
+		var parent: BadgeButton
 		
-		init(_ parent: FlexibleButton) {
+		init(_ parent: BadgeButton) {
 			self.parent = parent
 			
 			super.init()

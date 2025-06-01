@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum SliderValueBehavior {
+public enum SliderValueBehavior {
 	case continuous, doneAdjusting
 }

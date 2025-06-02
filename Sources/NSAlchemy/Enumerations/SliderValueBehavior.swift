@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Constants for defining when a slider conveys it's value changes
 public enum SliderValueBehavior {
 	case continuous, doneAdjusting
 }

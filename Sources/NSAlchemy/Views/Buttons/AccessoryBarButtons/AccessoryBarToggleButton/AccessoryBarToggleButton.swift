@@ -7,12 +7,17 @@
 
 import SwiftUI
 
+/// A button used most often in scope accessory bars to narrow searches
 @available(macOS 10.15, *)
 public struct AccessoryBarToggleButton: NSViewRepresentable {
 	var title: String
 	
 	@Binding var isOn: Bool
 	
+	/// Creates a new AccessoryBarToggleButton
+	/// - Parameters:
+	///   - title: The title of the button
+	///   - isOn: a binding to whether or not the toggle function of this button is on or off
 	public init(title: String, isOn: Binding<Bool>) {
 		self.title = title
 		self._isOn = isOn

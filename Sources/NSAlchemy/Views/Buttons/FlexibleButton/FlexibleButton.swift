@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// A button with a flexible height and customizable placement of an optional image
 @available(macOS 11.0, *)
 public struct FlexibleButton: NSViewRepresentable {
 	var title: String
@@ -14,7 +15,13 @@ public struct FlexibleButton: NSViewRepresentable {
 	var imagePosition: FlexibleButtonImagePosition?
 	var action: () -> Void
 	
-	public init(title: String, image: FlexibleButtonImageType, position: FlexibleButtonImagePosition?, action: @escaping (() -> Void)) {
+	/// Creates a new FlexibleButton
+	/// - Parameters:
+	///   - title: The title of the Button
+	///   - image: The kind of image you want to use for this button
+	///   - position: The position of the button's image
+	///   - action: The code to execute when the button is clicked
+	public init(title: String, image: FlexibleButtonImageType, position: FlexibleButtonImagePosition? = nil, action: @escaping (() -> Void)) {
 		self.title = title
 		self.imageType = image
 		self.imagePosition = position

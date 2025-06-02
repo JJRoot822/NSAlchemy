@@ -7,10 +7,12 @@
 
 import Cocoa
 
+/// Constants for the position of an image in a FlexibleButton
 @available(macOS 11.0, *)
 public enum FlexibleButtonImagePosition {
 	case top, bottom, leading, trailing, left, right, overlap
 	
+	/// The equivalent image position in Cocoa
 	var cocoaPosition: NSControl.ImagePosition {
 		switch self {
 		case .top: .imageAbove

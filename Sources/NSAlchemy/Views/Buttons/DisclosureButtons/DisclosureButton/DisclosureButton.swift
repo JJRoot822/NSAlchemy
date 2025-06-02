@@ -7,12 +7,17 @@
 
 import SwiftUI
 
+/// A disclosure button for expanding or collapsing content specific to the context of another view such as file location selection
 @available(macOS 10.15, *)
 public struct DisclosureButton: NSViewRepresentable {
 	var title: String
 	
 	@Binding var isOn: Bool
 	
+	/// Creates a new DisclosureButton
+	/// - Parameters:
+	///   - title: The title used as the button's accessibility label
+	///   - isOn: A binding to whether or not the button is in an expanded or collapsed state
 	public init(title: String, isOn: Binding<Bool>) {
 		
 		self.title = title

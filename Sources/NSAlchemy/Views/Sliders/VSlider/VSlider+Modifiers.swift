@@ -33,6 +33,9 @@ extension VSlider {
         return slider
     }
 	
+	/// A modifier to change how a slider communicates  it's change in value
+	/// - Parameter behavior: How to communicate value changes
+	/// - Returns: A modified VSlider
 	public func valueChangeBehavior(_ behavior: SliderValueBehavior) -> VSlider {
 		var slider = self
 		slider.valueChangeBehavior = behavior

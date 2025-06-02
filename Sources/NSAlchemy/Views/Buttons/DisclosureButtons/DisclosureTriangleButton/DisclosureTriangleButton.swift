@@ -7,14 +7,18 @@
 
 import SwiftUI
 
+///A standalone disclosure triangle button
 @available(macOS 10.15, *)
 public struct DisclosureTriangleButton: NSViewRepresentable {
 	var title: String
 	
 	@Binding var isOn: Bool
 	
+	/// Creates a new standalone disclosure triangle button
+	/// - Parameters:
+	///   - title: The title used for the button's accessibility label
+	///   - isOn: A binding to whether or not the disclosure triangle is expanded or collapsed
 	public init(title: String, isOn: Binding<Bool>) {
-		
 		self.title = title
 		self._isOn = isOn
 	}

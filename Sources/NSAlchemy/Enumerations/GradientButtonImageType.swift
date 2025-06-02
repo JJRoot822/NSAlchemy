@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Constants for the kind of image to use for a GradientButton
 @available(macOS 11.0, *)
 public enum GradientButtonImageType {
 	case asset(String), symbol(String)

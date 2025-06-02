@@ -7,11 +7,16 @@
 
 import SwiftUI
 
+/// A button used in accessory toolbars to execute some kind of action.
 @available(macOS 10.15, *)
 public struct AccessoryBarActionButton: NSViewRepresentable {
 	var title: String
 	var action: () -> Void
 	
+	/// Creates a new AccessoryBarActionButton
+	/// - Parameters:
+	///   - title: the title of the button
+	///   - action: The action to be executed when the button is clicked
 	public init(title: String, action: @escaping (() -> Void)) {
 		self.title = title
 		self.action = action

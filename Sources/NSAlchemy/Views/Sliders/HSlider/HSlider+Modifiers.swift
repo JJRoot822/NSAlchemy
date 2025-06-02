@@ -33,6 +33,9 @@ extension HSlider {
         return slider
     }
 	
+	/// A modifier to change how a slider communicates  it's change in value
+	/// - Parameter behavior: How to communicate value changes
+	/// - Returns: A modified HSlider
 	public func valueChangeBehavior(_ behavior: SliderValueBehavior) -> HSlider {
 		var slider = self
 		slider.valueChangeBehavior = behavior

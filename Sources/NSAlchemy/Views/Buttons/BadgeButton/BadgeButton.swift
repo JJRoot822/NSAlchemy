@@ -7,11 +7,16 @@
 
 import SwiftUI
 
+/// A button meant to convey additional information in the format of a badge
 @available(macOS 10.15, *)
 public struct BadgeButton: NSViewRepresentable {
 	var title: String
 	var action: () -> Void
 	
+	/// Creates a new BadgeButton
+	/// - Parameters:
+	///   - title: The button's title
+	///   - action: The action to be executed when the button is clicked
 	public init(title: String, action: @escaping (() -> Void)) {
 		self.title = title
 		self.action = action

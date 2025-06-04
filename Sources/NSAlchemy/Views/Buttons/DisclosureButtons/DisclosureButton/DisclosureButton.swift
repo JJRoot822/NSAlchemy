@@ -19,6 +19,7 @@ public struct DisclosureButton: NSViewRepresentable {
 	///   - title: The title used as the button's accessibility label
 	///   - isOn: A binding to whether or not the button is in an expanded or collapsed state
 	public init(_ title: String, isOn: Binding<Bool>) {
+		
 		self.title = title
 		self._isOn = isOn
 	}
@@ -37,6 +38,7 @@ public struct DisclosureButton: NSViewRepresentable {
 	
 	public func updateNSView(_ nsView: NSButton, context: Context) {
 		nsView.state = isOn ? .on : .off
+		nsView.setAccessibilityLabel(title)
 	}
 	
 	public func makeCoordinator() -> Coordinator {

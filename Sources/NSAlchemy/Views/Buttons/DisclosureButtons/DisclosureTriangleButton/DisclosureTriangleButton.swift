@@ -37,6 +37,7 @@ public struct DisclosureTriangleButton: NSViewRepresentable {
 	
 	public func updateNSView(_ nsView: NSButton, context: Context) {
 		nsView.state = isOn ? .on : .off
+		nsView.setAccessibilityLabel(title)
 	}
 	
 	public func makeCoordinator() -> Coordinator {

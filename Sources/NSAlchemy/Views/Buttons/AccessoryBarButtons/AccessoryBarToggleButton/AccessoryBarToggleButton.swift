@@ -18,7 +18,7 @@ public struct AccessoryBarToggleButton: NSViewRepresentable {
 	/// - Parameters:
 	///   - title: The title of the button
 	///   - isOn: a binding to whether or not the toggle function of this button is on or off
-	public init(title: String, isOn: Binding<Bool>) {
+	public init(_ title: String, isOn: Binding<Bool>) {
 		self.title = title
 		self._isOn = isOn
 	}

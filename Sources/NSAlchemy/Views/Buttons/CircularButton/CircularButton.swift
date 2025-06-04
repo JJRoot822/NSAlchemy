@@ -20,7 +20,7 @@ public struct CircularButton: NSViewRepresentable {
 	///   - title: The single character to be used as the button's title
 	///   - accessibilityLabel: The button's accessibility label to convey a full label to assistive technologies
 	///   - action: The action to be executed when the button is clicked
-	public init(title: Character, accessibilityLabel: String, action: @escaping (() -> Void)) {
+	public init(_ title: Character, accessibilityLabel: String, action: @escaping (() -> Void)) {
 		self.title = String(title)
 		self.accessibilityLabel = accessibilityLabel
 		self.imageType = .noImage
@@ -32,7 +32,7 @@ public struct CircularButton: NSViewRepresentable {
 	///   - title: The title of the button to be used as the button's accessibility label
 	///   - image: The kind of image to be used as the button's content
 	///   - action: The action to be executed when the button is clicked
-	public init(title: String, image: CircularButtonImageType, action: @escaping (() -> Void)) {
+	public init(_ title: String, image: CircularButtonImageType, action: @escaping (() -> Void)) {
 		self.title = title
 		self.accessibilityLabel = title
 		self.imageType = image

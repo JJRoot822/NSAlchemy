@@ -23,7 +23,7 @@ public extension RatingControl {
 		}
 		
 		@objc func valueChanged(_ sender: NSLevelIndicator) {
-			
+			parent.value = sender.doubleValue
 		}
 	}
 }

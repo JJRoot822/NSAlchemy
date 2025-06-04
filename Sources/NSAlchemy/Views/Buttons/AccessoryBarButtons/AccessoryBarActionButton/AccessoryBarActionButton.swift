@@ -17,7 +17,7 @@ public struct AccessoryBarActionButton: NSViewRepresentable {
 	/// - Parameters:
 	///   - title: the title of the button
 	///   - action: The action to be executed when the button is clicked
-	public init(title: String, action: @escaping (() -> Void)) {
+	public init(_ title: String, action: @escaping (() -> Void)) {
 		self.title = title
 		self.action = action
 	}

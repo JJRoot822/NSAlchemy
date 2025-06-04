@@ -21,7 +21,7 @@ public struct FlexibleButton: NSViewRepresentable {
 	///   - image: The kind of image you want to use for this button
 	///   - position: The position of the button's image
 	///   - action: The code to execute when the button is clicked
-	public init(title: String, image: FlexibleButtonImageType, position: FlexibleButtonImagePosition? = nil, action: @escaping (() -> Void)) {
+	public init(_ title: String, image: FlexibleButtonImageType, position: FlexibleButtonImagePosition? = nil, action: @escaping (() -> Void)) {
 		self.title = title
 		self.imageType = image
 		self.imagePosition = position

@@ -18,8 +18,7 @@ public struct DisclosureButton: NSViewRepresentable {
 	/// - Parameters:
 	///   - title: The title used as the button's accessibility label
 	///   - isOn: A binding to whether or not the button is in an expanded or collapsed state
-	public init(title: String, isOn: Binding<Bool>) {
-		
+	public init(_ title: String, isOn: Binding<Bool>) {
 		self.title = title
 		self._isOn = isOn
 	}

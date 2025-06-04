@@ -18,7 +18,7 @@ public struct DisclosureTriangleButton: NSViewRepresentable {
 	/// - Parameters:
 	///   - title: The title used for the button's accessibility label
 	///   - isOn: A binding to whether or not the disclosure triangle is expanded or collapsed
-	public init(title: String, isOn: Binding<Bool>) {
+	public init(_ title: String, isOn: Binding<Bool>) {
 		self.title = title
 		self._isOn = isOn
 	}

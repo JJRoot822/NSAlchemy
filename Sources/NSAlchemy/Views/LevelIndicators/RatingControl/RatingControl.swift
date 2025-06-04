@@ -73,14 +73,13 @@ public struct RatingControl: NSViewRepresentable {
 		indicator.isEditable = true
 		indicator.target = context.coordinator
 		indicator.action = #selector(context.coordinator.valueChanged)
-
 		indicator.setAccessibilityLabel(title)
-		
 		return indicator
 	}
 	
 	public func updateNSView(_ nsView: NSLevelIndicator, context: Context) {
 		nsView.doubleValue = value
+		
 		nsView.fillColor = fillColor
 	}
 	

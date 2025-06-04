@@ -11,8 +11,8 @@ import AppKit
 public enum CheckboxState {
     case on, off, mixed
     
-    static func cocoaState(for state: CheckboxState) -> NSButton.StateValue {
-        switch state {
+	public var cocoaRepresentation: NSControl.StateValue {
+        switch self {
         case .on:
             return .on
         case .mixed:

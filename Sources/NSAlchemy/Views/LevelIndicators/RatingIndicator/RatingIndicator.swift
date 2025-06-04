@@ -76,6 +76,7 @@ public struct RatingIndicator: NSViewRepresentable {
 	}
 	
 	public func updateNSView(_ nsView: NSLevelIndicator, context: Context) {
+		nsView.doubleValue = value
 		nsView.fillColor = fillColor
 	}
 }

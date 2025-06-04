@@ -28,15 +28,21 @@ public struct Checkbox: NSViewRepresentable {
     
     public func makeNSView(context: Context) -> NSButton {
         let checkbox = NSButton(checkboxWithTitle: self.title, target: nil, action: nil)
-        checkbox.state = CheckboxState.cocoaState(for: self.state)
+		checkbox.state = state.cocoaRepresentation
         checkbox.allowsMixedState = allowsMixedState
-        
+		checkbox.target = context.coordinator
+		checkbox.action = #selector(context.coordinator.valueChanged)
+		
         return checkbox
     }
     
-    public func updateNSView(_ nsView: NSButton, context: Context) {
-        nsView.state = CheckboxState.cocoaState(for: state)
-    }
+	public func updateNSView(_ nsView: NSButton, context: Context) {
+		nsView.state = state.cocoaRepresentation
+	}
+	
+	public func makeCoordinator() -> Coordinator {
+		return Coordinator(self)
+	}
     
     
 }

@@ -4,11 +4,11 @@
 ### What is NSAlchemy?
 
 NSAlchemy is a Swift package that contains SwiftUI views from AppKit that SwiftUI doesn't support out of the box, or implementations of views that SwiftUI does natively support, but aren't as customizable.
-As of April 25, 2025, the package contains the following views:
+As of June 4, 2025, the package contains the following views and environment keys:
 - HSlider: A horizontal slider with various customization options including tick marks and the ability to change the track color.
 - VSlider: A vertical slider that has the same customization options as HSlider, but is oriented vertically.
 - CircularSlider: A Circular slider that has a few options to customize it, but not as much as the previous mentioned ones. This slider acts much more like a knob.
-- LevelIndicator: A view that can reflect capacity levels or ratings. This view contains many customizations, including the ability to change the colors for warning and critical levels for the capacity style indicator and the ability to use custom assets for the rating images.
+- LevelIndicator: A view that can reflect capacity levels or ratings. This view contains many customizations, including the ability to change the colors for warning and critical levels for the capacity style indicator.
 - PathControl: A simple view that displays a visual representation of the path to a file.
 - ComboBox: A view that combines a text field and a pulldown list for selection between multiple options.
 - Checkbox: Though SwiftUI supports checkboxes natively, this one supports on, off and mixed states.
@@ -16,6 +16,18 @@ As of April 25, 2025, the package contains the following views:
 - ContinuousButton: A button that executes it's action after an optional delay and then at a provided interval
 - SearchField: Though SwiftUI has the searchable modifier, it lacks a dedicated search field
 - SegmentedControl: Though SwiftUI supports segmented controls through a picker style, it's not very customizable and it doesn't support multiple selections like this one does.
+- RatingIndicator: A view used to display a rating value
+- RatingControl: A view for displaying and editing a rating value
+- RelevancyIndicator: A view to display the relevancy of something, especially in search results
+- FlexibleButton: A button that has a flexible height
+- DisclosureTriangleButton: A button that acts as a disclosure triangle
+- DisclosureButton: A button that is primarily used to toggle the display of a view related to another view, like in a file dialog.
+- CircularButton: A button for displaying a singular character or image in a button shaped like a circle
+- BadgeButton: A button for displaying additional information in the form of a badge
+- AccessoryBarToggleButton: A button used in accessory bars to toggle filters for lists or tables
+- AccessoryBarActionButton: A button used in accessory bars to execute some kind of action, instead of acting like a toggle
+- A fileDialog environment key to summon open and save file/directory dialogs
+A localAuthenticator environment key to ask for biometric or password authentication
 
 # Installation Instructions
 
@@ -95,14 +107,6 @@ struct LevelIndicatorsView: View {
 					.indicatorFill(color: .green)
 					.indicatorWarning(fraction: 0.70, color: .yellow)
 					.indicatorCritical(value: 0.80, color: .red)
-			}
-			
-			VStack(spacing: 5) {
-				Text("Star Wars: The Acolyte")
-				
-				LevelIndicator("Media Rating", value: 1, minValue: 0, maxValue: 5, ratingImageSymbol: "star.fill", ratingPlaceholderImageSymbol: "star", placeholderVisibility: .always)
-					.indicatorStyle(.rating)
-					.indicatorFill(color: .yellow)
 			}
 		}
 	}
@@ -364,3 +368,200 @@ struct SearchFieldView: View {
 ```
 
 ![A macOS app displaying a sidebar and a detail view showing the results of the above code snippet](Screenshots/SearchField.png)
+
+### RatingControl, RatingIndicator and RelevancyIndicator
+
+```swift
+struct RatingAndRelevancyIndicatorsView: View {
+	@State private var rating: Double = 0.28
+	
+	var body: some View {
+		VStack(spacing: 50) {
+			VStack {
+				Text("Star Wars: The Acolyte")
+				
+				RatingIndicator(
+					"Rating of Star Wars: The Acolyte",
+					value: rating,
+					min: 0,
+					max: 5,
+					image: .symbol("star.fill"),
+					placeholderImage: .symbol("star")
+				)
+				
+			}
+			
+			VStack {
+				Text("Star Wars: The Acolyte")
+				
+				RatingControl(
+					"Rating of Star Wars: The Acolyte",
+					value: $rating,
+					min: 0,
+					max: 5,
+					image: .symbol("star.fill"),
+					placeholderImage: .symbol("star")
+				)
+			}
+			
+			HStack {
+				RelevancyIndicator("Relevancy of Linux", value: 0.25, min: 0, max: 1)
+				
+				Text("Relevancy of Linux")
+			}
+		}
+	}
+}
+```
+
+![A macOS app displaying a sidebar and a detail view showing the results of the above code snippet](Screenshots/RatingAndRelevancyIndicators.png)
+
+### FlexibleButton
+
+```swift
+struct FlexibleButtonsView: View {
+	var body: some View {
+		VStack {
+			FlexibleButton("This is a flexible height button with a long title", image: .noImage) {
+				print("Hello, World")
+			}
+			
+			FlexibleButton("Share", image: .symbol("square.and.arrow.up"), position: .leading) {
+				print("Sharing...")
+			}
+			FlexibleButton("Share", image: .symbol("square.and.arrow.up"), position: .trailing) {
+				print("Sharing...")
+			}
+			
+			FlexibleButton("Share", image: .symbol("square.and.arrow.up"), position: .top) {
+				print("Sharing...")
+			}
+			
+			FlexibleButton("Share", image: .symbol("square.and.arrow.up"), position: .bottom) {
+				print("Sharing...")
+			}
+			
+			FlexibleButton("Share", image: .symbol("square.and.arrow.up"), position: .left) {
+				print("Sharing...")
+			}
+			
+			FlexibleButton("Share", image: .symbol("square.and.arrow.up"), position: .right) {
+				print("Sharing...")
+			}
+			
+			FlexibleButton("Share", image: .symbol("square.and.arrow.up"), position: .overlap) {
+				print("Sharing...")
+			}
+		}
+	}
+}
+```
+
+![A macOS app displaying a sidebar and a detail view showing the results of the above code snippet](Screenshots/FlexibleButtons.png)
+
+### GradientButton
+
+```swift
+struct GradientButtonView: View {
+	var body: some View {
+		VStack(spacing: 0) {
+			SearchFieldView()
+			
+			GradientButton("Add Movie", image: .symbol("plus"),) {
+				print("Add a Movie to the table")
+			}
+		}
+	}
+}
+```
+
+![A macOS app displaying a sidebar and a detail view showing the results of the above code snippet](Screenshots/GradientButton.png)
+
+### DisclosureTriangleButton and DisclosureButton
+
+```swift
+struct DisclosureButtonsView: View {
+	@State private var disclosureTriangleToggle1: Bool = true
+	@State private var disclosureTriangleToggle2: Bool = false
+	@State private var disclosureToggle1: Bool = true
+	@State private var disclosureToggle2: Bool = false
+	
+	
+	var body: some View {
+		VStack {
+			HStack {
+				DisclosureTriangleButton(disclosureTriangleToggle1 ? "Hide Details" : "Show Details", isOn: $disclosureTriangleToggle1)
+				Text(disclosureTriangleToggle1 ? "Hide Details" : "Show Details")
+			}
+			
+			HStack {
+				DisclosureTriangleButton(disclosureTriangleToggle2 ? "Hide Details" : "Show Details", isOn: $disclosureTriangleToggle2)
+				Text(disclosureTriangleToggle2 ? "Hide Details" : "Show Details")
+			}
+			
+			DisclosureButton(disclosureToggle1 ? "Hide" : "Show", isOn: $disclosureToggle1)
+			DisclosureButton(disclosureToggle2 ? "Hide" : "Show", isOn: $disclosureToggle2)
+		}
+	}
+}
+```
+
+![A macOS app displaying a sidebar and a detail view showing the results of the above code snippet](Screenshots/DisclosureButtons.png)
+
+### CircularButton
+
+```swift
+struct CircularButtonsView: View {
+	var body: some View {
+		VStack {
+			CircularButton("S", accessibilityLabel: "Save") {
+				print("Saving...")
+			}
+			
+			CircularButton("Save", image: .symbol("square.and.arrow.down")) {
+				print("Saving...")
+			}
+		}
+	}
+}
+```
+
+![A macOS app displaying a sidebar and a detail view showing the results of the above code snippet](Screenshots/CircularButtons.png)
+
+### BadgeButton
+
+```swift
+struct BadgeButtonView: View {
+	var body: some View {
+		BadgeButton("Badge Button") {
+			print("Hello, World")
+		}
+	}
+}
+```
+
+![A macOS app displaying a sidebar and a detail view showing the results of the above code snippet](Screenshots/BadgeButton.png)
+
+### AccessoryBarToggleButton and AccessoryBarActionButton
+
+```swift
+struct AccessoryBarButtonsView: View {
+	@State private var filterByPrequels: Bool = true
+	@State private var filterByOriginals: Bool = false
+	@State private var filterBySequels: Bool = false
+	
+	var body: some View {
+		HStack {
+			AccessoryBarToggleButton("Prequel Trilogy", isOn: $filterByPrequels)
+			AccessoryBarToggleButton("Original Trilogy", isOn: $filterByOriginals)
+			AccessoryBarToggleButton("Sequel Trilogy", isOn: $filterBySequels)
+		
+			AccessoryBarActionButton("Apply Filters") {
+				print("Applying Filters...")
+			}
+		}
+	}
+}
+```
+
+![A macOS app displaying a sidebar and a detail view showing the results of the above code snippet](Screenshots/AccessoryBarButtons.png)
